@@ -1,0 +1,5 @@
+# wayback
+
+## License
+
+[MIT](LICENSE)
