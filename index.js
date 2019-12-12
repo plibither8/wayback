@@ -4,7 +4,15 @@ const fetch = require('node-fetch')
 // Construct availability checker URL
 function getCheckLink(targetUrl) {
 	const baseUrl = 'http://archive.org/wayback/available'
-	return baseUrl + '?url=' + encodeURIComponent(targetUrl)
+	// Current date and time's timestamp as per API specs
+	const timestamp = new Date()
+		.toISOString()
+		.split('.')[0]
+		.replace(/[-:T]/g, '')
+
+	return baseUrl +
+		'?timestamp=' + timestamp +
+		'&url=' + encodeURIComponent(targetUrl)
 }
 
 // Construct save link URL
