@@ -36,9 +36,9 @@ fastify.register(require('fastify-url-data'))
 fastify.get('/*', async (req, reply) => {
 	const { path } = req.urlData()
 	const targetUrl = 'http://' + decodeURIComponent(path).substring(1) // construct target url
-	const redirectionUrl = await getRedirectionUrl(targetUrl)
+	const redirectionUrl = await getRedirectionUrl(targetUrl
 
-	reply.send(redirectionUrl)
+	reply.redirect(redirectionUrl)
 })
 
 fastify.listen(process.env.PORT || 3000, err => {
