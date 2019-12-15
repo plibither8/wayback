@@ -1,6 +1,6 @@
 # &#x1F3DB;&#xFE0F; wayback
 
-Microservice that redirects to redirects to [archived version](https://web.archive.org/web/) of the URL if found, otherwise saves it the [**Internet Archive**](https://archive.org).
+Microservice that redirects to [archived version](https://web.archive.org/web/) of the URL if found, otherwise saves it to the [**Internet Archive**](https://archive.org).
 
 **Base URL:** [wayback.now.sh](https://wayback.now.sh)
 
