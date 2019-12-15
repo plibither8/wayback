@@ -1,6 +1,7 @@
 {
 	"error": "ERROR: Path '$' blacklisted.",
 	"paths": [
-		"/favicon.ico"
+		"/favicon.ico",
+		"/robots.txt"
 	]
 }
