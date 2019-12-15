@@ -1,5 +1,10 @@
 const fastify = require('fastify')()
 const fetch = require('node-fetch')
+const fs = require('fs')
+const marked = require('marked')
+const path = require('path')
+
+const BLACKLIST = require('./blacklist.json')
 
 // Construct availability checker URL
 function getCheckLink(targetUrl) {
@@ -40,9 +45,25 @@ async function getRedirectionUrl(url) {
 // Required to parse the URL and its path
 fastify.register(require('fastify-url-data'))
 
+fastify.get('/', async (req, reply) => {
+	fs.readFile(path.join(__dirname, './README.md'), 'utf8', function(err, data) {
+		reply
+			.type('text/html')
+			.send(marked(data))
+	})
+})
+
 // Main GET request parsing function
 fastify.get('/*', async (req, reply) => {
 	const { path } = req.urlData()
+
+	// Blacklisted paths handling
+	if (BLACKLIST.paths.includes(path)) {
+		reply
+			.status(404)
+			.send(BLACKLIST.error.replace('$', path))
+	}
+
 	const targetUrl = 'http://' + decodeURIComponent(path).substring(1) // construct target url
 	const redirectionUrl = await getRedirectionUrl(targetUrl)
 

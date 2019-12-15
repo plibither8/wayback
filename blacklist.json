@@ -1,0 +1,6 @@
+{
+	"error": "ERROR: Path '$' blacklisted.",
+	"paths": [
+		"/favicon.ico"
+	]
+}
