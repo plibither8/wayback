@@ -65,7 +65,7 @@ fastify.get('/*', async (req, reply) => {
 		return
 	}
 
-	const targetUrl = 'http://' + decodeURIComponent(path).substring(1) // construct target url
+	const targetUrl = decodeURIComponent(path).substring(1) // construct target url
 	const redirectionUrl = await getRedirectionUrl(targetUrl)
 
 	reply.redirect(redirectionUrl)
