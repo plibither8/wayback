@@ -62,6 +62,7 @@ fastify.get('/*', async (req, reply) => {
 		reply
 			.status(404)
 			.send(BLACKLIST.error.replace('$', path))
+		return
 	}
 
 	const targetUrl = 'http://' + decodeURIComponent(path).substring(1) // construct target url
