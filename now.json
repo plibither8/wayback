@@ -14,14 +14,18 @@
 			}
 		},
 		{
-			"src": "index.html",
+			"src": "README.md",
+			"use": "@now/static"
+		},
+		{
+			"src": "LICENSE",
 			"use": "@now/static"
 		}
 	],
 	"routes": [
 		{
-			"src": "/",
-			"dest": "index.html"
+			"src": "/LICENSE",
+			"dest": "LICENSE"
 		},
 		{
 			"src": "/(.*)",

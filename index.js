@@ -49,7 +49,7 @@ fastify.get('/', async (req, reply) => {
 	fs.readFile(path.join(__dirname, './README.md'), 'utf8', function(err, data) {
 		reply
 			.type('text/html')
-			.send(marked(data))
+			.send(require('./render-html')(marked(data)))
 	})
 })
 
