@@ -4,6 +4,6 @@
 		"fastify": "^2.8.0",
 		"fastify-url-data": "^2.3.0",
 		"marked": "^0.8.0",
-		"node-fetch": "^2.6.0"
+		"node-fetch": "^2.6.1"
 	}
 }
